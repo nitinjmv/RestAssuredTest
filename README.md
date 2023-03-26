@@ -4,10 +4,21 @@
 - Git
 
 ##### GET request test on sample API 
-`https://jsonplaceholder.typicode.com/posts`
+`https://jsonplaceholder.typicode.com`
 
-##### try out
+```
+/posts			100 posts
+/comments		500 comments
+/albums			100 albums
+/photos			5000 photos
+/todos			200 todos
+/users			10 users
+```
+
+##### Try out
 `git clone` 
+
+`cd RestAssuredTest`
 
 `mvn clean install`
 
