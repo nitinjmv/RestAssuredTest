@@ -34,5 +34,7 @@ public class PostAPITest {
 		.body("id", is(1)); // is() because id is coming as  int in response
 		//.body("title", containsString("sunt aut facere repellat provident occaecati excepturi optio reprehenderit")); // to compare string
 	}
+	
+	
 
 }
