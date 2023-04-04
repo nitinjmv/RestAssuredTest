@@ -4,7 +4,7 @@
 - Git
 
 ##### GET request test on sample API 
-`https://jsonplaceholder.typicode.com`
+`https://javsonplaceholder.typicode.com`
 
 ```
 /posts			100 posts

@@ -6,9 +6,9 @@ import static org.hamcrest.CoreMatchers.is;
 
 import java.util.StringJoiner;
 
-public class PostAPITest {
+public class GetAPITest {
 
-	private String endpoint = "https://jsonplaceholder.typicode.com/posts/1";
+	private String endpoint = "https://jsonplaceholder.typicode.com/users/1";
 
 	@Test
 	private void printAPIResponse() {
@@ -23,18 +23,13 @@ public class PostAPITest {
 	
 	@Test
 	private void testPostById() {
-	/*	String postId = "1";
-		StringJoiner sj = new StringJoiner("/");
-		sj.add(endpoint).add(postId);
-		 */
 		//endpoint=endpoint+"/1";
-
+		
 		given()
 		.when()
-		//.get(sj.toString())
-				.get(endpoint);
-		//.then()
-		//.body("id", is(1)); // is() because id is coming as  int in response
+		.get(endpoint)
+		.then()
+		.body("id", is(1)); // is() because id is coming as  int in response
 		//.body("title", containsString("sunt aut facere repellat provident occaecati excepturi optio reprehenderit")); // to compare string
 	}
 	
