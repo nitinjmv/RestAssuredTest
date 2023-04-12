@@ -13,6 +13,7 @@ public class Basics {
 
     public static void main(String[] args)
     {
+        //content of the file to string ->content of file can be converted into Byte->Byte data to string
         RestAssured.baseURI= "https://rahulshettyacademy.com";
         String response=given().log().all().queryParam("key", "qaclick123").header("Content-Type","application/json")
                 .body(payload.AddPlace()).when().post("maps/api/place/add/json")
