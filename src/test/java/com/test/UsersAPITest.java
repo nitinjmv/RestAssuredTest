@@ -1,22 +1,13 @@
 package com.test;
 
-import java.time.LocalDate;
-
-import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.test.model.User;
 
 import io.restassured.RestAssured;
-import io.restassured.internal.mapping.GsonMapper;
-import io.restassured.path.json.mapper.factory.DefaultGsonObjectMapperFactory;
-import io.restassured.path.json.mapper.factory.GsonObjectMapperFactory;
 import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
 
 public class UsersAPITest {
