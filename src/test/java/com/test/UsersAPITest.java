@@ -33,6 +33,7 @@ public class UsersAPITest {
 		request.body(user);
 		Response response = request.post("/users");
 		Assert.assertEquals(response.getStatusCode(), 201);
+		Assert.assertEquals("Leanne Graham", response.jsonPath().getString("name"));
 	}
 
 	@Test
@@ -41,11 +42,16 @@ public class UsersAPITest {
 		request.body(user);
 		Response response = request.put("/users/123");
 		Assert.assertEquals(response.getStatusCode(), 200);
+		Assert.assertEquals("123", response.jsonPath().getString("id"));
+        Assert.assertEquals("UpdatedSincere@april.biz", response.jsonPath().getString("email"));
+
 	}
 
 	@Test
 	public void deleteUsersTest() {
-		int statusCode = request.delete("/users/123").thenReturn().statusCode();
+		int statusCode = request.delete("/users/123")
+				.thenReturn()
+				.statusCode();
 		Assert.assertEquals(statusCode, 200);
 	}
 
