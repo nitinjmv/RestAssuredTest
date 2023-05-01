@@ -20,13 +20,13 @@ public class ProductAPITest {
 		request.header("Content-Type", "application/json");
 	}
 
-	@Test
+	@Test(priority=1)
 	public void getProductsTest() {
 		Response response = request.get("/products");
 		Assert.assertEquals(response.getStatusCode(), 200);
 	}
 
-	@Test
+	@Test(priority=2)
 	public void createProductsTest() {
 		Product product = buildProductObject();
 		request.body(product);
@@ -35,7 +35,7 @@ public class ProductAPITest {
 		Assert.assertEquals("laptop", response.jsonPath().getString("item"));
 	}
 
-	@Test
+	@Test(priority=3)
 	public void updateProductsTest() {
 		Product product = buildUpdatedProductObject();
 		request.body(product);
@@ -47,7 +47,19 @@ public class ProductAPITest {
 
 	}
 
-	@Test
+	@Test(priority=4)
+	public void patchProductsTest() {
+		Product product = buildPatchProductObject();
+		request.body(product);
+		Response response = request.put("/products/100");
+		Assert.assertEquals(response.getStatusCode(), 200);
+		Assert.assertEquals("100", response.jsonPath().getString("id"));
+		Assert.assertEquals("laptop1", response.jsonPath().getString("item"));
+		Assert.assertEquals("12014", response.jsonPath().getString("price"));
+
+	}
+
+	@Test(priority=5)
 	public void deleteProductsTest() {
 		int statusCode = request.delete("/products/100")
 				.thenReturn()
@@ -61,8 +73,13 @@ public class ProductAPITest {
 	}
 
 	private Product buildUpdatedProductObject() {
-		return Product.builder().id("100").item("laptop1")
+		return Product.builder().id("101").item("laptop1")
 				.price("12013").build();
+	}
+
+	private Product buildPatchProductObject() {
+		return Product.builder().id("101").item("laptop1")
+				.price("12014").build();
 	}
 
 }
