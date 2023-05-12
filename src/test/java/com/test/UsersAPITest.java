@@ -1,5 +1,4 @@
 package com.test;
-
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;

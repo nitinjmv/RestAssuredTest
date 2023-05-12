@@ -42,8 +42,8 @@ public class ProductAPITest {
 		Response response = request.put("/products/100");
 		Assert.assertEquals(response.getStatusCode(), 200);
 		Assert.assertEquals("100", response.jsonPath().getString("id"));
-		Assert.assertEquals("laptop1", response.jsonPath().getString("item"));
-		Assert.assertEquals("12013", response.jsonPath().getString("price"));
+		Assert.assertEquals("laptop2", response.jsonPath().getString("item"));
+		Assert.assertEquals("12015", response.jsonPath().getString("price"));
 
 	}
 
@@ -73,8 +73,8 @@ public class ProductAPITest {
 	}
 
 	private Product buildUpdatedProductObject() {
-		return Product.builder().id("101").item("laptop1")
-				.price("12013").build();
+		return Product.builder().id("100").item("laptop2")
+				.price("12015").build();
 	}
 
 	private Product buildPatchProductObject() {
